@@ -1,6 +1,5 @@
 const homeInfoTable = require('../models/homeTable');
 const inspirecloud = require('@byteinspire/api');
-const ObjectId = inspirecloud.db.ObjectId;
 
 class HomeService {
   /**

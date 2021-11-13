@@ -1,8 +1,12 @@
 const path = require('path');
+
 const koaBody = require('koa-body');
 const koaStatic = require('koa-static');
+
 const todoRouter = require('./routers/todo');
 const homeRouter = require('./routers/home');
+const blogRouter = require('./routers/blog');
+
 const Koa = require('koa');
 const app = new Koa();
 
@@ -45,5 +49,6 @@ app.use(async function errorHandler(ctx, next) {
 // 使用待办事项业务路由
 app.use(todoRouter);
 app.use(homeRouter);
+app.use(blogRouter);
 
 module.exports = app;
