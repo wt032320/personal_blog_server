@@ -19,6 +19,22 @@ class BlogService {
       .find()
     return infoList
   }
+
+  /**
+   * 更新博客浏览量
+   * @param id 待更新博客的id
+   */
+  async blogViews(id) {
+    const blogItem = await blogDetailsTable.where({ _id: ObjectId(id) }).findOne();
+    if (!blogItem) {
+      const error = new Error(`blogItem:${id} not found`);
+      error.status = 404;
+      throw error;
+    }
+    blogItem.pageviews += 1
+    // 使用 save 更新记录
+    await blogDetailsTable.save(blogItem);
+  }
 }
 
 module.exports = new BlogService();

@@ -11,7 +11,21 @@ class BlogController {
    */
   async blogInfoAll(ctx) {
     const result = await blogService.blogListAll();
-    ctx.body = { result }
+    ctx.body = { result };
+  }
+
+  /**
+   * 更新博客浏览量
+   * 响应格式
+   * {
+   *  status: 200/404/...
+   * }
+   * @param ctx Koa 的上下文参数
+   */
+  async blogViews(ctx) {
+    const { id } = ctx.request.body;
+    await blogService.blogViews(id);
+    ctx.body = { status: 200 }
   }
 }
 

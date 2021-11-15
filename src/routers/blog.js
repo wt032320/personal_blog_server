@@ -8,5 +8,6 @@ const blogController = require('../controllers/blogController');
 
 // 组装路由
 router.get('/', blogController.blogInfoAll);
+router.post('/views', blogController.blogViews);
 
 module.exports = router.routes();
