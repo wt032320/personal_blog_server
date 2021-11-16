@@ -35,6 +35,22 @@ class BlogService {
     // 使用 save 更新记录
     await blogDetailsTable.save(blogItem);
   }
+
+  /**
+   * 新建博客
+   * @param text 博客内容
+   * @param category 博客分类
+   * @return status 200 返回成功时的状态码 
+   */
+
+  async blogCreate(text, category) {
+    const blogItem = blogDetailsTable.create({
+      pageviews: 0,
+      text: text,
+      category: category
+    })
+    await blogDetailsTable.save(blogItem)
+  }
 }
 
 module.exports = new BlogService();
