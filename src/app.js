@@ -6,6 +6,7 @@ const koaStatic = require('koa-static');
 const todoRouter = require('./routers/todo');
 const homeRouter = require('./routers/home');
 const blogRouter = require('./routers/blog');
+const adminRouter = require('./routers/admin');
 
 const Koa = require('koa');
 const app = new Koa();
@@ -50,5 +51,6 @@ app.use(async function errorHandler(ctx, next) {
 app.use(todoRouter);
 app.use(homeRouter);
 app.use(blogRouter);
+app.use(adminRouter);
 
 module.exports = app;
